@@ -16,11 +16,19 @@ export class UsersService {
     return this.usersRepository.save(user);
   }
 
+  async findOneById(id: number): Promise<User> {
+    return this.usersRepository.findOne({ where: { id } });
+  }
+
   async findOne(email: string): Promise<User | undefined> {
     return this.usersRepository.findOne({ where: { email } });
   }
 
   async findAll(): Promise<User[]> {
     return this.usersRepository.find();
+  }
+
+  async updateBalance(userId: number, newBalance: number): Promise<void> {
+    await this.usersRepository.update(userId, { balance: newBalance });
   }
 }

@@ -27,6 +27,11 @@ export class OrdersController {
 
   @Get('')
   async findAll(@Request() req): Promise<Order[]> {
+    return this.orderService.findAll(req.user.userId);
+  }
+
+  @Get('/userId')
+  async findAllByUserId(@Request() req): Promise<Order[]> {
     return this.orderService.findAll(req.user.id);
   }
 }
