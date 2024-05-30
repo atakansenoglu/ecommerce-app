@@ -1,11 +1,11 @@
-import { User } from 'src/users/user.entity';
 import {
-  Column,
   Entity,
-  JoinColumn,
-  ManyToOne,
   PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+import { User } from '../users/user.entity';
 
 @Entity()
 export class Order {
@@ -20,6 +20,9 @@ export class Order {
 
   @Column()
   price: number;
+
+  @Column()
+  total: number;
 
   @Column()
   userId: number;

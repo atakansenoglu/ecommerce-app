@@ -34,4 +34,9 @@ export class OrdersController {
   async findAllByUserId(@Request() req): Promise<Order[]> {
     return this.orderService.findAll(req.user.id);
   }
+
+  @Post('drop-table')
+  async dropOrdersTable(): Promise<void> {
+    return this.orderService.dropOrdersTable();
+  }
 }
